@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontal scroll image gallery</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="gallery-wrap">
+      <img src="images/previous.png" id="backBtn">
+
+      <div class="gallery">
+        <div>
+          <span><img src="images/breno-machado.jpg" /></span>
+          <span><img src="images/frank-mckenna.jpg" /></span>
+          <span><img src="images/grant-ritchie.jpg" /></span>
+        </div>
+
+        <div>
+          <span><img src="images/jms.jpg" /></span>
+          <span><img src="images/jonatan.jpg" /></span>
+          <span><img src="images/urban-vintage.jpg" /></span>
+        </div>
+        </div>
+
+        <img src="images/next.png" id="nextBtn">
+
+    </div>
+
+
+    <script>
+      let scrollContainer = document.querySelector('.gallery');
+      let backBtn = document.getElementById('backBtn');
+      let nextBtn = document.getElementById('nextBtn');
+
+      scrollContainer.addEventListener('wheel',(evt) =>{
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        scrollContainer.style.scrollBehavior="auto";
+      });
+
+      nextBtn.addEventListener('click',()=>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft += 1280;
+      });
+
+      backBtn.addEventListener('click',()=>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft -= 1280;
+      })
+
+
+    </script>
+
+  </body>
+</html>
